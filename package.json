@@ -1,0 +1,22 @@
+{
+  "name": "monsuu-server",
+  "version": "1.0.0",
+  "description": "server of monsuu",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deem3/monsuu-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Deem3/monsuu-server/issues"
+  },
+  "homepage": "https://github.com/Deem3/monsuu-server#readme",
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
