@@ -1,13 +1,17 @@
 import { Router } from "express";
+import * as dotenv from 'dotenv';
+
 import Pool from 'pg-pool'
+
+dotenv.config()
 
 const router = Router();
 const pool = new Pool({
-    host: 'localhost',
-    port: 5432,
-    database: 'monsuu',
-    user: 'deemdb',
-    password: '1234'
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    database: process.env.DB_DATABASE,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
 })
 
 router.get('/', async (req, res, next)=>{
@@ -15,15 +19,6 @@ router.get('/', async (req, res, next)=>{
         pool.query(`SELECT json_agg(monsuu.Products.*) FROM monsuu.Products`, (err, result)=>{
             res.json(result.rows[0].json_agg);
         })
-    } catch (error) {
-        res.send(error);
-    }
-})
-
-
-router.get('/about', async(req, res)=>{
-    try {
-        res.send('{"message": "Hello about"}')
     } catch (error) {
         res.send(error);
     }
