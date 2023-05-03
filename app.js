@@ -8,6 +8,13 @@ dotenv.config()
 // middleware
 app.use(cors())
 
+app.use(express.json())
+
+app.use((req, res, next)=>{
+    console.log(req.path, req.method)
+    next()
+})
+
 
 import indexRouter from './routes/index.js';
 
