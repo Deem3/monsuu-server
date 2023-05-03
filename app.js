@@ -1,8 +1,13 @@
 import express from 'express';
+import cors from 'cors'
 
 const app = express();
 
-const PORT = 3000;
+// middleware
+app.use(cors())
+
+
+const PORT = 4000;
 
 import indexRouter from './routes/index.js';
 
