@@ -17,6 +17,32 @@ const pool = new Pool({
 })
 
 // Register
+/**
+ * @openapi
+ * /user/register:
+ *  post:
+ *      summary: register a user
+ *      tags:
+ *          - user
+ *      requestBody:
+ *          description: create a user
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      properties:
+ *                          username:
+ *                              type: string
+ *                              description: username
+ *                          password:
+ *                              type: string
+ *                              description: password
+ *      responses:
+ *          200: 
+ *              description: Success
+ *          500: 
+ *              description: Error
+ */
 
 router.post('/register', async (req, res) => {
     const { username, password } = req.body;
@@ -55,6 +81,34 @@ router.post('/register', async (req, res) => {
 
 
 // Login
+
+/**
+ * @openapi
+ * /user/login:
+ *  post:
+ *      summary: login a user
+ *      tags:
+ *          - user
+ *      requestBody:
+ *          description: login a user
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      properties:
+ *                          username:
+ *                              type: string
+ *                              description: username
+ *                          password:
+ *                              type: string
+ *                              description: password
+ *      responses:
+ *          200: 
+ *              description: Success
+ *          500: 
+ *              description: Error
+ */
+
 const findUser = async (username) => {
     const user = await pool.query(`SELECT * FROM monsuu.users WHERE username = $1`, [username]);
     return user;

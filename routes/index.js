@@ -19,6 +19,21 @@ const pool = new Pool({
 
 // localhost:4000/api/
 
+/**
+ * @openapi
+ * /api/:
+ *  get:
+ *      summary: get all products
+ *      tags:
+ *          - product
+ *      description: Welcome to monsuu api
+ *      responses:
+ *          200: 
+ *              description: Success
+ *          500: 
+ *              description: Error
+ */
+
 router.get('/', async (req, res, next)=>{
     try {
 
@@ -36,6 +51,25 @@ router.get('/', async (req, res, next)=>{
 
 // localhost:4000/api/1
 
+/**
+ * @openapi
+ * /api/{id}:
+ *  get:
+ *      summary: get product by id
+ *      tags:
+ *          - product
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          description: get product
+ *          required: true
+ *          type: integer
+ *      responses:
+ *          200: 
+ *              description: Success
+ *          500: 
+ *              description: Error
+ */
 router.get('/:id', async (req, res, next)=>{
     const {id} = req.params;
     try {
@@ -51,6 +85,60 @@ router.get('/:id', async (req, res, next)=>{
 // post a product
 
 // localhost:4000/api/
+
+/**
+ * @openapi
+ * /api/:
+ *  post:
+ *      summary: create new product
+ *      tags:
+ *          - product
+ *      requestBody:
+ *          description: get product
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      properties:
+ *                          _id:
+ *                              type: integer
+ *                              description: id
+ *                          name:
+ *                              type: string
+ *                              description: name
+ *                          weight:
+ *                              type: integer
+ *                              description: weight
+ *                          img:
+ *                              type: string
+ *                              description: img
+ *                          price:
+ *                              type: integer
+ *                              description: price
+ *                          pkg:
+ *                              type: string
+ *                              description: package
+ *                          calorie:
+ *                              type: integer
+ *                              description: calorie
+ *                          keep_date:
+ *                              type: integer
+ *                              description: date
+ *                          keep_condition:
+ *                              type: string
+ *                              description: condition
+ *                          product_advantage:
+ *                              type: string
+ *                              description: advantage
+ *                          pros:
+ *                              type: string
+ *                              description: pros
+ *      responses:
+ *          200: 
+ *              description: Success
+ *          500: 
+ *              description: Error
+ */
 router.post('/', async (req, res, next)=>{
     const {_id, name, weight, img, price, pkg, calorie, keep_date, keep_condition, product_advantage, pros} = req.body;
     {}
@@ -98,6 +186,67 @@ router.post('/', async (req, res, next)=>{
 })
 
 // update product
+
+/**
+ * @openapi
+ * /api/{id}:
+ *  put:
+ *      summary: edit existing product
+ *      tags:
+ *          - product
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          description: id
+ *          required: true
+ *          type: integer
+ *      requestBody:
+ *          description: get product
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      properties:
+ *                          _id:
+ *                              type: integer
+ *                              description: id
+ *                          name:
+ *                              type: string
+ *                              description: name
+ *                          weight:
+ *                              type: integer
+ *                              description: weight
+ *                          img:
+ *                              type: string
+ *                              description: img
+ *                          price:
+ *                              type: integer
+ *                              description: price
+ *                          pkg:
+ *                              type: string
+ *                              description: package
+ *                          calorie:
+ *                              type: integer
+ *                              description: calorie
+ *                          keep_date:
+ *                              type: integer
+ *                              description: date
+ *                          keep_condition:
+ *                              type: string
+ *                              description: condition
+ *                          product_advantage:
+ *                              type: string
+ *                              description: advantage
+ *                          pros:
+ *                              type: string
+ *                              description: pros
+ *      responses:
+ *          200: 
+ *              description: Success
+ *          500: 
+ *              description: Error
+ */
+
 router.put('/:id', async(req, res, next)=>{
     const {id} = req.params;
     const {_id, name, weight, img, price, pkg, calorie, keep_date, keep_condition, product_advantage, pros} = req.body;
@@ -141,6 +290,26 @@ router.put('/:id', async(req, res, next)=>{
 })
 
 // delete product
+
+/**
+ * @openapi
+ * /api/{id}:
+ *  delete:
+ *      summary: delete product by id
+ *      tags:
+ *          - product
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          description: get product
+ *          required: true
+ *          type: integer
+ *      responses:
+ *          200: 
+ *              description: Success
+ *          500: 
+ *              description: Error
+ */
 router.delete('/:id', async(req, res, next)=>{
     const {id} = req.params;
     try {
