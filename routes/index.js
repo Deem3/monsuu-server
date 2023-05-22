@@ -141,7 +141,6 @@ router.get('/:id', async (req, res, next)=>{
  */
 router.post('/', async (req, res, next)=>{
     const {_id, name, weight, img, price, pkg, calorie, keep_date, keep_condition, product_advantage, pros} = req.body;
-    {}
     try {
 
             // get a token from the request headers
