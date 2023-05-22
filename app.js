@@ -21,6 +21,7 @@ app.use((req, res, next) => {
 
 import indexRouter from "./routes/index.js";
 import userRouter from "./routes/login.js";
+import orderRouter from "./routes/order.js";
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
@@ -29,6 +30,8 @@ app.listen(process.env.PORT, () => {
 app.use("/api/", indexRouter);
 
 app.use("/user/", userRouter);
+
+app.use("/order/", orderRouter);
 
 {/*--------------------------------------------------------------------*/}
 
@@ -47,7 +50,7 @@ const options = {
       version: '1.0.0',
     },
   },
-  apis: ["./app.js", "./routes/*.js"],
+  apis: ["./app.js", "./routes/*.js", "./routes/order.js"],
 };
 
 const openapiSpec = await swaggerJSDoc(options);
