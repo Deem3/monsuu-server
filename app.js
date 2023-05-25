@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import * as dotenv from "dotenv";
-import coookieParser from "cookie-parser";
+// import coookieParser from "cookie-parser";
 
 const app = express();
 dotenv.config();
@@ -10,7 +10,7 @@ dotenv.config();
 
 app.use(cors());
 
-app.use(coookieParser());
+// app.use(coookieParser());
 
 app.use(express.json());
 
@@ -27,6 +27,7 @@ app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
 
+// localhost:3000/api/
 app.use("/api/", indexRouter);
 
 app.use("/user/", userRouter);

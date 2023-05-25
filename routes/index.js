@@ -34,6 +34,9 @@ const pool = new Pool({
  *              description: Error
  */
 
+// method: get post; url: /, /:id
+
+// localhost:4000/api/
 router.get('/', async (req, res, next)=>{
     try {
 
