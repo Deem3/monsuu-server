@@ -73,6 +73,9 @@ router.get('/', async (req, res, next)=>{
  *          500: 
  *              description: Error
  */
+
+// localhost:4000/api/product
+// locaholst:4000/api/
 router.get('/:id', async (req, res, next)=>{
     const {id} = req.params;
     try {
